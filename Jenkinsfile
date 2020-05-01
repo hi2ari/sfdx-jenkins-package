@@ -47,6 +47,15 @@ node {
                 if (rc != 0) {
                     error 'Salesforce dev hub org authorization failed.'
                 }
+                //make it the default dev hub
+                rc1 = bat returnStatus: true, script: "\"${toolbelt}\" force:config:set defaultusername=admin.learn4demo@gmail.com defaultdevhubusername=DevHub --global"
+                 if (rc1 != 0) {
+                    error 'Salesforce dev hub org is not the default org'
+                }
+                rc2 = bat returnStatus: true, script: "\"${toolbelt}\" force:org:list"
+                if (rc2 != 0) {
+                    error 'not the default org'
+                }
             }
 
 
