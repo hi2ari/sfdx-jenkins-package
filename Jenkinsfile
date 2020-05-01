@@ -150,7 +150,7 @@ node {
                 def response = jsonSlurper.parseText(output)
 
                 PACKAGE_VERSION = response.result.SubscriberPackageVersionId
-                prinln(response.result.SubscriberPackageVersionId)
+                println(response.result.SubscriberPackageVersionId)
                 println PACKAGE_VERSION
                 //response = null
 
