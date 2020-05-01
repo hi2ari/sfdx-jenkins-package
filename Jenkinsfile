@@ -39,7 +39,7 @@ node {
 
             stage('Authorize DevHub') {
                 //rc = command "\"${toolbelt}\" force:auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile \"${server_key_file}\" --setdefaultdevhubusername --setalias HubOrg"
-                rc = bat returnStatus: true, script: "\"${toolbelt}\' force:auth:jwt:grant --clientid ${CONSUMER_KEY} --username ${HUB_USERNAME} --jwtkeyfile ${JWT_KEY_FILE} --setdefaultdevhubusername --instanceurl https://login.salesforce.com'
+                rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${CONSUMER_KEY} --username ${HUB_USERNAME} --jwtkeyfile \"${JWT_KEY_FILE}\" --setdefaultdevhubusername --setalias HubOrg"//--instanceurl https://login.salesforce.com"
                 if (rc != 0) {
                     error 'Salesforce dev hub org authorization failed.'
                 }
