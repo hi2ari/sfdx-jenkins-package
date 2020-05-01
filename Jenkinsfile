@@ -39,10 +39,10 @@ node {
 
             stage('Authorize DevHub') {
                 //rc = command "\"${toolbelt}\" force:auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile \"${server_key_file}\" --setdefaultdevhubusername --setalias HubOrg"
-                rc1 = bat returnstatus: true, script: "\"${toolbelt}\" force:auth:logout --targetusername ${SF_USERNAME} -p"
-                if (rc1 != 0) {
-                    error 'Salesforce dev hub org logout failed.'
-                }
+                //rc1 = bat returnstatus: true, script: "\"${toolbelt}\" force:auth:logout --targetusername ${SF_USERNAME} -p"
+                //if (rc1 != 0) {
+                  //  error 'Salesforce dev hub org logout failed.'
+                //}
                 rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile \"${server_key_file}\" --setdefaultdevhubusername --setalias HubOrg"//--instanceurl https://login.salesforce.com"
                 if (rc != 0) {
                     error 'Salesforce dev hub org authorization failed.'
