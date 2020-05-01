@@ -48,7 +48,7 @@ node {
                     error 'Salesforce dev hub org authorization failed.'
                 }
                 //make it the default dev hub
-                rc1 = bat returnStatus: true, script: "\"${toolbelt}\" force:config:set defaultusername=admin.learn4demo@gmail.com defaultdevhubusername=DevHub --global"
+                rc1 = bat returnStatus: true, script: "\"${toolbelt}\" force:config:set defaultusername=${SF_USERNAME} defaultdevhubusername=${SF_USERNAME} --global"
                  if (rc1 != 0) {
                     error 'Salesforce dev hub org is not the default org'
                 }
@@ -64,7 +64,7 @@ node {
             // -------------------------------------------------------------------------
 
             stage('Create Test Scratch Org') {
-                rc = bat returnStatus: true, script: "\"${toolbelt}\" force:org:create --targetdevhubusername DevHub --setdefaultusername --definitionfile config/project-scratch-def.json --setalias ciorg --wait 10 --durationdays 1"
+                rc = bat returnStatus: true, script: "\"${toolbelt}\" force:org:create --targetdevhubusername ${SF_USERNAME} --setdefaultusername --definitionfile config/project-scratch-def.json --setalias ciorg --wait 10 --durationdays 1"
                 if (rc != 0) {
                     error 'Salesforce test scratch org creation failed.'
                 }
