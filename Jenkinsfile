@@ -39,7 +39,7 @@ node {
 
             stage('Authorize DevHub') {
                 //rc = command "\"${toolbelt}\" force:auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile \"${server_key_file}\" --setdefaultdevhubusername --setalias HubOrg"
-                rc1 = bat returnstatus: true, script: "\"${toolbelt}\" force:auth:logout --targetusername ${SF_USERNAME} -p"
+                rc1 = bat returnstatus: true, script: "\"${toolbelt}\" force:auth:logout --targetusername DevHub -p"
                 if (rc1 != 0) {
                     error 'Salesforce dev hub org logout failed.'
                 }
