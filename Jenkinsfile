@@ -45,10 +45,10 @@ node {
                 //}
                 
                 
-                rc00 = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:logout --targetusername admin.learn4demo@gmail.com --noprompt"
-                if (rc00 != 0) {
-                    error 'logout error.'
-                }
+                //rc00 = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:logout --targetusername admin.learn4demo@gmail.com --noprompt"
+                //if (rc00 != 0) {
+                //    error 'logout error.'
+                //}
                 
                 rc0 = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:logout --targetusername ${SF_USERNAME} --noprompt"
                 if (rc0 != 0) {
