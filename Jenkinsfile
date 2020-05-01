@@ -44,10 +44,11 @@ node {
                   //  error 'Salesforce dev hub org logout failed.'
                 //}
                 
-                rc0 = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:logout --targetusername ${SF_USERNAME} --noprompt"
-                if (rc0 != 0) {
-                    error 'logout error.'
-                }
+                //First time for new account hence commenting out
+                //rc0 = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:logout --targetusername ${SF_USERNAME} --noprompt"
+                //if (rc0 != 0) {
+                //    error 'logout error.'
+                //}
                
                 rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile \"${server_key_file}\" --setdefaultdevhubusername --setalias DevHub"//--instanceurl https://login.salesforce.com"
                 if (rc != 0) {
