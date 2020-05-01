@@ -151,7 +151,7 @@ node {
 
                 PACKAGE_VERSION = response.result.SubscriberPackageVersionId
                 prinln(response.result.SubscriberPackageVersionId)
-                println PACKAGE_VERSION)
+                println PACKAGE_VERSION
                 //response = null
 
                 //echo ${PACKAGE_VERSION}
