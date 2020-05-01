@@ -44,7 +44,7 @@ node {
                   //  error 'Salesforce dev hub org logout failed.'
                 //}
                 
-                rc0 = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:logout --targetusername=learn2createorg@gmail.com --noprompt"
+                rc0 = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:logout --targetusername learn2createorg@gmail.com --noprompt"
                 if (rc0 != 0) {
                     error 'logout error.'
                 }
