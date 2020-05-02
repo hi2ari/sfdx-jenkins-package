@@ -8,7 +8,7 @@ node {
     def SF_USERNAME=env.SF_LOGINID
     def SERVER_KEY_CREDENTALS_ID=env.SERVER_KEY_CREDENTALS_ID
     def TEST_LEVEL='RunLocalTests'
-    def PACKAGE_NAME='0Ho5w0000008OOXCA2'
+    def PACKAGE_NAME='0Ho5w000000GmkYCAS'
     def PACKAGE_VERSION
     def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://login.salesforce.com"
 
@@ -60,7 +60,7 @@ node {
                 //    error 'logout error.'
                 //}
                
-                rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile \"${server_key_file}\" --setdefaultdevhubusername --setalias DevHub"//--instanceurl https://login.salesforce.com"
+                rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --username ${SF_USERNAME} --jwtkeyfile \"${server_key_file}\" --setdefaultdevhubusername ${SF_USERNAME}"//--instanceurl https://login.salesforce.com"
                 if (rc != 0) {
                     error 'Salesforce dev hub org authorization failed.'
                 }
